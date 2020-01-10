@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+  </head>
+
+  <body>
+    <h1 >array element frequency counter</h1>
+    <h4 id="output"></h4>
+    <script>
+
+    // var input = prompt("enter context ");
+    // input = input.split("");
+
+    var arr1=[3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3];
+    function frequence(arr) {
+      let cnt = 1,
+          lmnt = arr[0] ;
+      for( let inx = 0; inx < arr.length; inx++) {
+        let temp = 1;
+        for ( var i = inx + 1; i < arr.length; i++) {console.log("current item "+ arr[inx]);
+          if ( arr[inx]  == arr[i] ) {
+            temp++;
+            if ( temp > cnt ) {
+              lmnt = arr[i] ;
+              cnt = temp;
+            }
+          }
+        }
+      } 
+      let result = {};
+      result.lmnt = lmnt;
+      result.cnt = cnt;
+      return result ;
+    }  
+    var result = frequence(arr1);
+    console.log(frequence(arr1));
+    let p = document.createElement("P");
+    let txtnode = document.createTextNode("most frequent is "+result.lmnt + " which occured  " + result.cnt +" times")
+    p.appendChild(txtnode);
+    let output = document.getElementById("output");
+    output.appendChild(p);
+    </script>
+  </body>
+
+</html>
